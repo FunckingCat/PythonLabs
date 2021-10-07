@@ -4,7 +4,7 @@ import numpy as np
 
 def gen_array(m: int, n: int):
 	rng = np.random.default_rng(145)
-	arr = np.array([(rng.integers(low=0, high=2, size=n)) for i in range(m)])
+	arr = np.array([(rng.integers(low=0, high=10, size=n)) for i in range(m)])
 	return arr
 
 def swap_rows(arr, a, b):
@@ -22,7 +22,8 @@ def sum_rows(a ,b, weight):
 	return a
 
 def go_triangle(arr_src: np.ndarray, n) -> np.ndarray:
-	arr = np.eye(n)
+	rng = np.random.default_rng(145)
+	arr =  np.array([(rng.integers(low=0, high=10, size=n)) for i in range(n)])
 	np.copyto(arr, arr_src)
 	try:
 		swaps = 0
@@ -52,10 +53,18 @@ def go_triangle(arr_src: np.ndarray, n) -> np.ndarray:
 		print("Данная матрица не может быть преведена к треугольной")
 		return None
 
+def find_lines(arr, av):
+	count = 0
+	for line in arr:
+		if sum(line) / len(line) < av:
+			count += 1
+	return count
+
+
 try:
 	print("Треугольной может быть только квадратная матрица")
 	#n = int(input("Input N: "))
-	n = 6
+	n = 4
 except:
 	print("Value Error")
 	exit()
@@ -65,3 +74,12 @@ arr_tri = go_triangle(arr, n)
 
 print(arr)
 print(arr_tri)
+
+try:
+	#av = int(input("Enter Average: "))
+	av = 6
+except:
+	print("Value Error")
+	exit()
+
+print("Lines with average less than",av, "-", find_lines(arr, av))
