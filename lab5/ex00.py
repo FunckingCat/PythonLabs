@@ -63,8 +63,7 @@ def find_lines(arr, av):
 
 try:
 	print("Треугольной может быть только квадратная матрица")
-	#n = int(input("Input N: "))
-	n = 4
+	n = int(input("Input N: "))
 except:
 	print("Value Error")
 	exit()
@@ -76,8 +75,7 @@ print(arr)
 print(arr_tri)
 
 try:
-	#av = int(input("Enter Average: "))
-	av = 6
+	av = int(input("Enter Average: "))
 except:
 	print("Value Error")
 	exit()
