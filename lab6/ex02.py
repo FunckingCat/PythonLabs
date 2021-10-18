@@ -5,8 +5,11 @@ try:
 	#r = float(input("Input R: "))
 	r = 10
 
-	x = float(input("Input x: "))
-	y = float(input("Input y: "))
+	x = 0
+	y = 0
+	with open('res02', 'r') as f:
+		x = float(f.readline())
+		y = float(f.readline())
 
 	if x >= 0 and y >= 0 and sqrt(x*x + y*y) <= r:
 		res = ("[{};{}] belongs to the region".format(x , y))

@@ -62,8 +62,11 @@ def find_lines(arr, av):
 
 
 try:
-	print("Треугольной может быть только квадратная матрица")
-	n = int(input("Input N: "))
+	n = 0
+	av = 0
+	with open('inp03', 'r') as f:
+		n = int(f.readline())
+		av = int(f.readline())
 except:
 	print("Value Error")
 	exit()
@@ -76,12 +79,4 @@ with open('res03', 'w') as f:
 	f.write("\n")
 	f.write(np.array2string(arr_tri))
 	f.write("\n")
-
-try:
-	av = int(input("Enter Average: "))
-except:
-	print("Value Error")
-	exit()
-
-with open('res03', 'a') as f:
 	f.write("Lines with average less than {} - {}".format(av, find_lines(arr, av)))

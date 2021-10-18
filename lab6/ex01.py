@@ -1,7 +1,9 @@
 from math import *
 
 try:
-	x = float(input("Input   number: "))
+	x = 0
+	with open('res01', 'r') as f:
+		x = float(f.readline())
 
 	if x <= -2:
 		y = -x - 2
