@@ -1,20 +1,20 @@
 from tkinter import *
- from ex00_note import Note
- 
- def list_notes(fr: Frame) -> None:
- 	for widget in fr.winfo_children():
- 		widget.destroy()
- 	notes.sort(key=lambda x: x.days_past())
- 	for note in notes:
- 		lb = Label(fr, text=note.pretty())
- 		lb.pack()
- 
- def clear_notes() -> None:
- 	fr = notes_frame
- 	notes.clear()
- 	for widget in fr.winfo_children():
- 		widget.destroy()
- 
- def clear() -> None:
- 	fr = notes_frame
- 	list_notes(fr)
+from ex00_note import Note
+
+def list_notes(fr: Frame) -> None:
+	for widget in fr.winfo_children():
+		widget.destroy()
+	notes.sort(key=lambda x: x.days_past())
+	for note in notes:
+		lb = Label(fr, text=note.pretty())
+		lb.pack()
+
+def clear_notes() -> None:
+	fr = notes_frame
+	notes.clear()
+	for widget in fr.winfo_children():
+		widget.destroy()
+
+def clear() -> None:
+	fr = notes_frame
+	list_notes(fr)

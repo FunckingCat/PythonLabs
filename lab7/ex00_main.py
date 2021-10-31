@@ -56,9 +56,9 @@ def	find_notes():
 		if tel == note.tel:
 			lb = Label(fr, text=note.pretty())
 			lb.pack()
-		if len(fr.winfo_children()) == 0:
-			lb = Label(fr, text="No notes with same phone number")
-			lb.pack()
+	if len(fr.winfo_children()) == 0:
+		lb = Label(fr, text="No notes with same phone number")
+		lb.pack()
 
 def serch():
 	fr = notes_frame
