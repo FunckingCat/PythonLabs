@@ -1,5 +1,5 @@
 from tkinter import *
-from note import Note
+from ex00_note import Note
 
 def list_notes(fr: Frame) -> None:
 	for widget in fr.winfo_children():
@@ -121,14 +121,16 @@ def add():
 
 root = Tk()
 notes = []
-
-with open('data.txt', 'r', encoding='utf-8') as g:
-	while True:
-		line = g.readline()
-		if not line:
-			break
-		new_note = Note.init_from_str(line[:-1])
-		notes.append(new_note)
+try:
+	with open('ex00_data.txt ', 'r', encoding='utf-8') as g:
+		while True:
+			line = g.readline()
+			if not line:
+				break
+			new_note = Note.init_from_str(line[:-1])
+			notes.append(new_note)
+except:
+	pass
 
 root.geometry('600x300')
 
@@ -160,6 +162,6 @@ clear_button.pack(side='left', padx=5, expand=1)
 
 root.mainloop()
 
-with open('data.txt', 'w', encoding='utf-8') as g:
+with open('ex00_data.txt ', 'w', encoding='utf-8') as g:
 	for note in notes:
 		g.write(note.to_string() + '\n')
